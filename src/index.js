@@ -191,18 +191,20 @@ function checkWord() {
 
     if(right < 1) {
         incorrectGuesses++;
+        
+        const newBodyPart = document.createElement('p');
+        newBodyPart.classList.add('body-party');
+        
+        newBodyPart.textContent = bodyParts[incorrectGuesses - 1];
 
-
+        hangmanCanvasNode.appendChild(newBodyPart);
     }
 
 
 
 
     console.log('the number of incorrect guesses this round is' + incorrectGuesses);
-    let bodyPartsPart = bodyParts[incorrectGuesses];
-    console.log(bodyPartsPart);
 
-    hangmanCanvasNode.textContent = bodyPartsPart;
 
 }
 
