@@ -201,7 +201,10 @@ function checkWord() {
     }
 
 
-
+    if(incorrectGuesses === 6) {
+        alert('sorry you have lost the game!');
+        location.reload();
+    }
 
     console.log('the number of incorrect guesses this round is' + incorrectGuesses);
 
