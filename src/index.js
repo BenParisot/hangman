@@ -67,77 +67,76 @@ const words = [
     'habit',
     'happily',
     'heading',
-    // hunter
-    // Illinois
-    // image
-    // independent
-    // instant
-    // kids
-    // label
-    // lungs
-    // manufacturing
-    // mathematics
-    // melted
-    // memory
-    // mill
-    // mission
-    // monkey
-    // mysterious
-    // neighborhood
-    // nuts
-    // occasionally
-    // official
-    // ourselves
-    // palace
-    // plates
-    // poetry
-    // policeman
-    // positive
-    // possibly
-    // practical
-    // pride
-    // promised
-    // recall
-    // relationship
-    // remarkable
-    // require
-    // rhyme
-    // rocky
-    // rubbed
-    // rush
-    // sale
-    // satellites
-    // satisfied
-    // scared
-    // selection
-    // shake
-    // shaking
-    // shallow
-    // shout
-    // silly
-    // simplest
-    // slight
-    // slip
-    // slope
-    // soap
-    // solar
-    // species
-    // spin
-    // stiff
-    // swung
-    // tales
-    // thumb
-    // tobacco
-    // toy
-    // trap
-    // treated
-    // tune
-    // university
-    // vapor
-    // vessels
-    // wealth
-    // wolf
-    // zoo
+    'hunter',
+    'image',
+    'independent',
+    'instant',
+    'kids',
+    'label',
+    'lungs',
+    'manufacturing',
+    'mathematics',
+    'melted',
+    'memory',
+    'mill',
+    'mission',
+    'monkey',
+    'mysterious',
+    'neighborhood',
+    'nuts',
+    'occasionally',
+    'official',
+    'ourselves',
+    'palace',
+    'plates',
+    'poetry',
+    'policeman',
+    'positive',
+    'possibly',
+    'practical',
+    'pride',
+    'promised',
+    'recall',
+    'relationship',
+    'remarkable',
+    'require',
+    'rhyme',
+    'rocky',
+    'rubbed',
+    'rush',
+    'sale',
+    'satellites',
+    'satisfied',
+    'scared',
+    'selection',
+    'shake',
+    'shaking',
+    'shallow',
+    'shout',
+    'silly',
+    'simplest',
+    'slight',
+    'slip',
+    'slope',
+    'soap',
+    'solar',
+    'species',
+    'spin',
+    'stiff',
+    'swung',
+    'tales',
+    'thumb',
+    'tobacco',
+    'toy',
+    'trap',
+    'treated',
+    'tune',
+    'university',
+    'vapor',
+    'vessels',
+    'wealth',
+    'wolf',
+    'zoo'
 ];
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
@@ -175,8 +174,6 @@ letterGuessNode.addEventListener('submit', function(event) {
     checkWord();
 });
 
-
-//take in user input letter and check to see if it matches any letter in random word
 
 function checkWord() {
     // let randomWord = words[Math.floor(Math.random() * words.length)];
