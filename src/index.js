@@ -170,6 +170,7 @@ function checkWord() {
     console.log(inputLetter);
 
     let wrong = 0;
+    let right = 0;
 
 
     for(let index = 0; index < randomWord.length; index++) {
@@ -178,6 +179,7 @@ function checkWord() {
 
         if (letterCheck === inputLetter) {
             console.log('match');
+            right++;
 
 
         }
@@ -187,7 +189,7 @@ function checkWord() {
         }
     }
 
-    if(wrong > 0) {
+    if(right < 1) {
         incorrectGuesses++;
 
 
