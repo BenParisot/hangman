@@ -1,14 +1,19 @@
-
-//get letter guess from submit field
-
-
 const letterGuessNode = document.getElementById('guess-form');
 const showGuessedLetters = document.getElementById('show-guesses');
 const wordHintNode = document.getElementById('word-hint');
 
-console.log(letterGuessNode);
-
 let guessedLetters = [];
+
+const bodyParts = [
+    'head',
+    'right arm',
+    'left arm',
+    'torso',
+    'right leg',
+    'left leg'
+];
+
+let incorrectGuesses = 0;
 
 const words = [
     'acres',
@@ -127,82 +132,68 @@ const words = [
     // zoo
 ];
 
-// randomWord();
-// checkWord();
+let randomWord = words[Math.floor(Math.random() * words.length)];
 
-
-// letterGuessNode.addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     // let word = '';
-
-//     const letterGuess = document.getElementById('guess').value;
-//     console.log(letterGuess);
-
-//     guessedLetters.push(letterGuess);
-
-//     showGuessedLetters.textContent = ' ' + guessedLetters;
-// });
-
-
-
-// function randomWord() {
-//     let randomNum = words[Math.floor(Math.random() * words.length)];
-
-//     wordHintNode.textContent = randomNum;
-
-
-//     // for(let index = 0; index < randomNum.length; index++) {
-//     //     let character = randomNum[index];
-
-//     //     character = '_';
-
-//     //     console.log(blankWord);
-
-//     // }
-
-//     // wordHintNode.textContent = character;
-
-
-//     console.log(randomNum);
-
-// }
 
 letterGuessNode.addEventListener('submit', function(event) {
     event.preventDefault();
+    
 
-    function checkWord() {
-        let randomWord = words[Math.floor(Math.random() * words.length)];
-        console.log(randomWord);
-        const inputLetter = 'a';
-        console.log(inputLetter);
+    const letterGuess = document.getElementById('guess').value;
+    console.log(letterGuess);
 
-        for(let index = 0; index < randomWord.length; index++) {
-            let letterCheck = randomWord[index];
-            console.log(letterCheck);
-            // console.log(inputLetter);
-            if (letterCheck === inputLetter) {
-                console.log('match');
-            }
-            else {
-                console.log('not a match');
-            }
-            // if(letterCheck = inputLetter)
-            // console.log(letterCheck);
-
-        }
-
+    if(letterGuess.length !== 1) {
+        alert('sorry please guess only one letter');
     }
+    else {
+        guessedLetters.push(letterGuess);
+        showGuessedLetters.textContent = guessedLetters;
+    }
+
     checkWord();
+    showHint();
 });
 
-    // letterGuessNode.addEventListener('submit', function(event) {
-    //     event.preventDefault();
-    //     // let word = '';
 
-    //     let randomWord = words[Math.floor(Math.random() * words.length)];
+//take in user input letter and check to see if it matches any letter in random word
 
-    //     console.log(randomWord);
+function checkWord() {
+    // let randomWord = words[Math.floor(Math.random() * words.length)];
+    console.log(randomWord);
+    const inputLetter = document.getElementById('guess').value;
+    console.log(inputLetter);
 
-    
-    //     // const letterGuess = document.getElementById('guess').value;
-    // }
+    for(let index = 0; index < randomWord.length; index++) {
+        let letterCheck = randomWord[index];
+        console.log(letterCheck);
+
+        if (letterCheck === inputLetter) {
+            console.log('match');
+
+
+        }
+        else {
+            console.log('not a match');
+
+
+            incorrectGuesses = incorrectGuesses + 1;
+
+            console.log(incorrectGuesses);
+
+            if(incorrectGuesses === 6) {
+                console.log('you lose!');
+            }
+
+
+        }
+    }
+}
+
+
+
+function showHint() {
+
+    console.log(randomWord);
+
+
+}
