@@ -4,9 +4,7 @@ const wordHintNode = document.getElementById('word-hint');
 const hangmanCanvasNode = document.getElementById('hangman-canvas');
 
 let guessedLetters = [];
-
 let wordHintArray = [];
-
 
 const bodyParts = [
     'head',
@@ -17,10 +15,7 @@ const bodyParts = [
     'left leg'
 ];
 
-
-
 let incorrectGuesses = 0;
-
 let correctGuesses = 0;
 
 const words = [
@@ -140,29 +135,18 @@ const words = [
 ];
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
-console.log(randomWord);
 
-wordHintNode.textContent = randomWord;
 wordHintArray = [];
+
 for(let index = 0; index < randomWord.length; index++) {
-
-        
     wordHintArray.push(' _ ');
-
-    console.log(wordHintArray);
-
-    wordHintNode.textContent = wordHintArray;
-        // console.log(randomWord.length);
 }
 
+wordHintNode.textContent = wordHintArray;
 
 letterGuessNode.addEventListener('submit', function(event) {
     event.preventDefault();
-    
-
     const letterGuess = document.getElementById('guess').value;
-    console.log(letterGuess);
-
     if(letterGuess.length !== 1) {
         alert('sorry please guess only one letter');
     }
@@ -170,18 +154,13 @@ letterGuessNode.addEventListener('submit', function(event) {
         guessedLetters.push(letterGuess);
         showGuessedLetters.textContent = guessedLetters;
     }
-
     checkWord();
 });
 
-
 function checkWord() {
-    // let randomWord = words[Math.floor(Math.random() * words.length)];
-    console.log(randomWord);
     const inputLetter = document.getElementById('guess').value;
     console.log(inputLetter);
 
-    let wrong = 0;
     let right = 0;
 
     let indicesOfRandomWord = [];
@@ -191,54 +170,25 @@ function checkWord() {
             indicesOfRandomWord.push(index);
         }
     }
-    console.log(indicesOfRandomWord);
-
 
     for(let index = 0; index < indicesOfRandomWord.length; index++) {
-
-        let yes = indicesOfRandomWord[index];
-
-        wordHintArray.splice(yes, 1, inputLetter);
-
-        console.log('this is indices of random word ' + yes);
-        
-        console.log('the input letter is ' + inputLetter);
-
-        console.log(wordHintArray);
-
+        wordHintArray.splice(indicesOfRandomWord[index], 1, inputLetter);
         wordHintNode.textContent = wordHintArray;
-
     }
 
     for(let index = 0; index < randomWord.length; index++) {
         let letterCheck = randomWord[index];
-        console.log(letterCheck);
-        let n = randomWord.indexOf(letterCheck);
 
-
-
-
-
-
-
-        if (letterCheck === inputLetter) {
+        if(letterCheck === inputLetter) {
             right++;
         }
-        else {
-            console.log('not a match');
-            wrong++;
-        }
-
     }
 
     if(right < 1) {
         incorrectGuesses++;
-        
         const newBodyPart = document.createElement('p');
-        newBodyPart.classList.add('body-party');
-        
+        newBodyPart.classList.add('body-part');
         newBodyPart.textContent = bodyParts[incorrectGuesses - 1];
-
         hangmanCanvasNode.appendChild(newBodyPart);
     }
 
@@ -246,34 +196,13 @@ function checkWord() {
         correctGuesses++;
     }
 
-
-
-
     if(incorrectGuesses === 6) {
-        alert('sorry you have lost the game!');
+        alert('Sorry, but you have lost the game! The correct answer was ' + randomWord + '.');
         location.reload();
     }
 
     if(correctGuesses === randomWord.length) {
-        alert('you have won the game!');
+        alert('Congrasts, you have won the game! Click okay to play again.');
         location.reload();
     }
-
-    console.log('the number of incorrect guesses this round is' + incorrectGuesses);
-
 }
-
-
-
-
-
-
-
-// function guessWrong() {
-
-// }
-
-
-// function guessRight() {
-
-// }
