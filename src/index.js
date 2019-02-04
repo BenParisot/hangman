@@ -21,6 +21,8 @@ const bodyParts = [
 
 let incorrectGuesses = 0;
 
+let correctGuesses = 0;
+
 const words = [
     'acres',
     'adult',
@@ -139,6 +141,20 @@ const words = [
 ];
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
+console.log(randomWord);
+
+wordHintNode.textContent = randomWord;
+wordHintArray = [];
+for(let index = 0; index < randomWord.length; index++) {
+
+        
+    wordHintArray.push(' _ ');
+
+    console.log(wordHintArray);
+
+    wordHintNode.textContent = wordHintArray;
+        // console.log(randomWord.length);
+}
 
 
 letterGuessNode.addEventListener('submit', function(event) {
@@ -157,7 +173,6 @@ letterGuessNode.addEventListener('submit', function(event) {
     }
 
     checkWord();
-    showHint();
 });
 
 
@@ -177,8 +192,14 @@ function checkWord() {
         let letterCheck = randomWord[index];
         console.log(letterCheck);
 
+        let n = '';
+        
+        n = randomWord.indexOf(letterCheck);
+        console.log('random word letter index is ' + n);
+
+
         if (letterCheck === inputLetter) {
-            console.log('match');
+            console.log('match' + n);
             right++;
 
 
@@ -200,34 +221,32 @@ function checkWord() {
         hangmanCanvasNode.appendChild(newBodyPart);
     }
 
+    if(right >= 1) {
+        correctGuesses++;
+    }
+
+
+
 
     if(incorrectGuesses === 6) {
         alert('sorry you have lost the game!');
         location.reload();
     }
 
+    if(correctGuesses === randomWord.length) {
+        alert('you have won the game!');
+        location.reload();
+    }
+
     console.log('the number of incorrect guesses this round is' + incorrectGuesses);
 
-
 }
 
 
 
-function showHint() {
 
-    wordHintNode.textContent = randomWord;
-    wordHintArray = [];
-    for(let index = 0; index < randomWord.length; index++) {
 
-        
-        wordHintArray.push(' _ ');
 
-        console.log(wordHintArray);
-
-        wordHintNode.textContent = wordHintArray;
-        // console.log(randomWord.length);
-    }
-}
 
 // function guessWrong() {
 
