@@ -135,7 +135,7 @@ const words = [
 ];
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
-
+console.log(randomWord);
 wordHintArray = [];
 
 for(let index = 0; index < randomWord.length; index++) {
@@ -146,6 +146,7 @@ wordHintNode.textContent = wordHintArray;
 
 letterGuessNode.addEventListener('submit', function(event) {
     event.preventDefault();
+    console.log(randomWord);
     const letterGuess = document.getElementById('guess').value;
     if(letterGuess.length !== 1) {
         alert('sorry please guess only one letter');
@@ -154,12 +155,20 @@ letterGuessNode.addEventListener('submit', function(event) {
         guessedLetters.push(letterGuess);
         showGuessedLetters.textContent = guessedLetters;
     }
+    // for(let index = 0; index < guessedLetters.length; index++) {
+    //     if(letterGuess === guessedLetters[index]) {
+    //         alert('Looks like you have already tried that letter. Please pick a different one.');
+    //         letterGuessNode.reset();
+    //     }
+    // }
     checkWord();
+    // console.log(correctGuesses);
+    console.log(randomWord.length);
+    letterGuessNode.reset();
 });
 
 function checkWord() {
     const inputLetter = document.getElementById('guess').value;
-    console.log(inputLetter);
 
     let right = 0;
 
@@ -193,7 +202,7 @@ function checkWord() {
     }
 
     if(right >= 1) {
-        correctGuesses++;
+        correctGuesses = correctGuesses + right;
     }
 
     if(incorrectGuesses === 6) {
@@ -205,4 +214,6 @@ function checkWord() {
         alert('Congrasts, you have won the game! Click okay to play again.');
         location.reload();
     }
+
+    console.log(correctGuesses);
 }
