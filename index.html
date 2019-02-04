@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hang-Man</title>
+</head>
+<body>
+    <header>
+        <h1>Let's Play Hangman!</h1>
+    </header>
+    
+    <main>
+        <section>
+            <form id="guess-form">
+                <label for="letter-guess">Guess a letter:</label>
+                <input type="text" name="guess" id="guess">
+                <button>Submit</button>
+            </form>
+        </section>
+
+        <section id="word-hint">
+
+        </section>
+
+        <section id="hangman-canvas">
+
+        </section>
+
+        <section id="letters-guessed">
+            <p>Your guessed letters: <span id="show-guesses"></span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Ben Parisot 2019</p>
+    </footer>
+    <script type="module" src="../src/index.js"></script>
+</body>
+</html>
