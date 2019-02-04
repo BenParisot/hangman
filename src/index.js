@@ -187,27 +187,51 @@ function checkWord() {
     let wrong = 0;
     let right = 0;
 
+    let indicesOfRandomWord = [];
+    
+    for(let index = 0; index < randomWord.length; index++) {
+        if(randomWord[index] === inputLetter) {
+            indicesOfRandomWord.push(index);
+        }
+    }
+    console.log(indicesOfRandomWord);
+
+
+    for(let index = 0; index < indicesOfRandomWord.length; index++) {
+
+        let yes = indicesOfRandomWord[index];
+
+        wordHintArray.splice(yes, 1, inputLetter);
+
+        console.log('this is indices of random word ' + yes);
+        
+        console.log('the input letter is ' + inputLetter);
+
+        console.log(wordHintArray);
+
+        wordHintNode.textContent = wordHintArray;
+
+    }
 
     for(let index = 0; index < randomWord.length; index++) {
         let letterCheck = randomWord[index];
         console.log(letterCheck);
+        let n = randomWord.indexOf(letterCheck);
 
-        let n = '';
-        
-        n = randomWord.indexOf(letterCheck);
-        console.log('random word letter index is ' + n);
+
+
+
+
 
 
         if (letterCheck === inputLetter) {
-            console.log('match' + n);
             right++;
-
-
         }
         else {
             console.log('not a match');
             wrong++;
         }
+
     }
 
     if(right < 1) {
