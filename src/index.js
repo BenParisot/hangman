@@ -1,6 +1,7 @@
 const letterGuessNode = document.getElementById('guess-form');
 const showGuessedLetters = document.getElementById('show-guesses');
 const wordHintNode = document.getElementById('word-hint');
+const hangmanCanvasNode = document.getElementById('hangman-canvas');
 
 let guessedLetters = [];
 
@@ -15,6 +16,8 @@ const bodyParts = [
     'right leg',
     'left leg'
 ];
+
+
 
 let incorrectGuesses = 0;
 
@@ -166,6 +169,9 @@ function checkWord() {
     const inputLetter = document.getElementById('guess').value;
     console.log(inputLetter);
 
+    let wrong = 0;
+
+
     for(let index = 0; index < randomWord.length; index++) {
         let letterCheck = randomWord[index];
         console.log(letterCheck);
@@ -177,19 +183,25 @@ function checkWord() {
         }
         else {
             console.log('not a match');
-
-
-            incorrectGuesses = incorrectGuesses + 1;
-
-            console.log(incorrectGuesses);
-
-            if(incorrectGuesses === 6) {
-                console.log('you lose!');
-            }
-
-
+            wrong++;
         }
     }
+
+    if(wrong > 0) {
+        incorrectGuesses++;
+
+
+    }
+
+
+
+
+    console.log('the number of incorrect guesses this round is' + incorrectGuesses);
+    let bodyPartsPart = bodyParts[incorrectGuesses];
+    console.log(bodyPartsPart);
+
+    hangmanCanvasNode.textContent = bodyPartsPart;
+
 }
 
 
@@ -197,8 +209,10 @@ function checkWord() {
 function showHint() {
 
     wordHintNode.textContent = randomWord;
+    wordHintArray = [];
     for(let index = 0; index < randomWord.length; index++) {
 
+        
         wordHintArray.push(' _ ');
 
         console.log(wordHintArray);
@@ -206,6 +220,13 @@ function showHint() {
         wordHintNode.textContent = wordHintArray;
         // console.log(randomWord.length);
     }
-
-
 }
+
+// function guessWrong() {
+
+// }
+
+
+// function guessRight() {
+
+// }
