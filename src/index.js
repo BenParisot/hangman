@@ -4,6 +4,9 @@ const wordHintNode = document.getElementById('word-hint');
 
 let guessedLetters = [];
 
+let wordHintArray = [];
+
+
 const bodyParts = [
     'head',
     'right arm',
@@ -193,7 +196,16 @@ function checkWord() {
 
 function showHint() {
 
-    console.log(randomWord);
+    wordHintNode.textContent = randomWord;
+    for(let index = 0; index < randomWord.length; index++) {
+
+        wordHintArray.push(' _ ');
+
+        console.log(wordHintArray);
+
+        wordHintNode.textContent = wordHintArray;
+        // console.log(randomWord.length);
+    }
 
 
 }
