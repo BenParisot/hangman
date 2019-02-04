@@ -135,7 +135,7 @@ const words = [
 ];
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
-console.log(randomWord);
+
 wordHintArray = [];
 
 for(let index = 0; index < randomWord.length; index++) {
@@ -161,9 +161,8 @@ letterGuessNode.addEventListener('submit', function(event) {
     //         letterGuessNode.reset();
     //     }
     // }
+
     checkWord();
-    // console.log(correctGuesses);
-    console.log(randomWord.length);
     letterGuessNode.reset();
 });
 
@@ -214,6 +213,4 @@ function checkWord() {
         alert('Congrasts, you have won the game! Click okay to play again.');
         location.reload();
     }
-
-    console.log(correctGuesses);
 }

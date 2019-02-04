@@ -1,0 +1,75 @@
+body {
+    background: #f5ffc6;
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    background: #b4e1ff;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 122px;
+    color: #fface4;
+    line-height: .4;    
+    -webkit-text-stroke: 1px white;
+}
+
+#hint {
+    text-align: center;
+    font-size: 36px; 
+}
+
+main {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#user-guess {
+    margin: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#word-hint {
+    text-align: center;
+    /* font-family: 'Bangers', cursive; */
+    font-size: 42px;
+    color: #ab87ff;
+    padding: 0px 10px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+#letters-guessed {
+    width: 400px;
+    margin-right: 15px;
+    text-align: center;
+    padding: 15px 5px;
+}
+
+.hangman-canvas {
+    width: 400px;
+    background: #c1ff9b;
+    text-align: center;
+    padding: 15px 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 55px;
+    padding: 40px 0px 100px 0px;
+    background: #fface4;
+}
+
+
+
+
